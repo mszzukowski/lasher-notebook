@@ -29,22 +29,9 @@ function add_visit(){
 
 
 function get_clients(){
-	var request = new XMLHttpRequest()
-
-	request.open('GET', 'http://localhost:5000/api/v1.0/clients', true)
-	request.onload = function () {
-		// Begin accessing JSON data here
-		var data = JSON.parse(this.response)
-
-		var tmp_clients = document.getElementById("clients")
-		if (request.status >= 200 && request.status < 400) {
-			data.forEach((clients) => {
-			tmp_clients += clients.name
-			})
-		} else {
-			console.log('error')
-		}
-	}
-
-	request.send()
+	const userAction = async () => {
+	const response = await fetch('http://example.com/movies.json');
+	const myJson = await response.json(); //extract JSON from the http response
+	document.getElementById("clients").innerHTML = myJson;
+}
 }
