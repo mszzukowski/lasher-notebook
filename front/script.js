@@ -30,6 +30,7 @@ function add_visit(){
 function readTextFile(file)
 {
 	    var rawFile = new XMLHttpRequest();
+	    var allText = ""
 	    rawFile.open("GET", file, false);
 	    rawFile.onreadystatechange = function ()
 	    {
@@ -37,8 +38,7 @@ function readTextFile(file)
 			{
 				if(rawFile.status === 200 || rawFile.status == 0)
 				{
-					var allText = rawFile.responseText;
-					//alert(allText);
+					allText = rawFile.responseText;
 				}
 			}
 		}
@@ -48,11 +48,11 @@ function readTextFile(file)
 
 function callClients(){
 	var ip = readTextFile("ip.txt");
-	document.getElementById("client").innerHTML = ip;
+	ip = ip.slice(0, -1)
 	
-	//$.get( "http://" + ip + ":5000/api/v1.0/clients", function( data ) {
+	$.get( "http://"+ip+":5000/api/v1.0/clients", function( data ) {
 	        //$('#clients').html(data);
-	//	document.getElementById("client").innerHTML = data;
-	//});
+		document.getElementById("clients").innerHTML = data;
+	});
 }
 
