@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Notatnik rzęsistki</title>
+<script src="script.js"></script>
+</head>
+<body>
+<h3 id="demo">Notatnik rzęsistki - ostatnie wizyty</h1>
+<p>Wybierz klientkę:
+	<select id="client_list">Wybierz klientkę:
+	  <option value="0">Agata</option>
+	  <option value="1">Lena</option>
+	  <option value="2">Ania</option>
+	  <option value="3">Mariola</option>
+	</select>
+	<form>
+		<label for="lash">Wpisz mapę odzielając myślnikami</label><br>
+		<input type="text" id="lash" name="lash"><br>
+	</form>
+</p>
+
+
+<button type="button" onclick='add_visit()'>Zapisz</button>
+
+<p id="client">Nie wybrano klientki.</p>
+<p><a href="index.html">Powrót</a></p>
+</body>
+</html>
