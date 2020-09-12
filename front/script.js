@@ -27,9 +27,31 @@ function add_visit(){
 		+ ' data:' + date + ' notes:' + notes;
 }
 
+function readTextFile(file)
+{
+	    var rawFile = new XMLHttpRequest();
+	    rawFile.open("GET", file, false);
+	    rawFile.onreadystatechange = function ()
+	    {
+		            if(rawFile.readyState === 4)
+			            {
+					                if(rawFile.status === 200 || rawFile.status == 0)
+						                {
+									                var allText = rawFile.responseText;
+									                alert(allText);
+									            }
+					            }
+		        }
+	    rawFile.send(null);
+}
+
 function callClients(){
-	$.get( "http://localhost:5000/api/v1.0/clients", function( data ) {
-	        $('#clients').html(data);
-	});
+	var ip = readTextFile("ip.txt");
+	document.getElementById("client").innerHTML = ip;
+	
+	//$.get( "http://" + ip + ":5000/api/v1.0/clients", function( data ) {
+	        //$('#clients').html(data);
+	//	document.getElementById("client").innerHTML = data;
+	//});
 }
 
