@@ -30,7 +30,7 @@ function add_visit(){
 
 function get_clients(){
 	const userAction = async () => {
-	const response = await fetch('http://example.com/movies.json');
+	const response = await fetch('http://localhost:5000/api/v1.0/clients');
 	const myJson = await response.json(); //extract JSON from the http response
 	document.getElementById("clients").innerHTML = myJson;
 }
