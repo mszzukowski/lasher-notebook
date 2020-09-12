@@ -6,7 +6,6 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-
 clients = [
         {
             'id': 0,
@@ -33,9 +32,6 @@ clients = [
         }
 ]
 
-@app.route('/')
-def index():
-    return "Hello, World!"
 
 @app.route('/api/v1.0/clients', methods=['GET'])
 def get_clients():
