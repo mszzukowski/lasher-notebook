@@ -27,10 +27,9 @@ function add_visit(){
 		+ ' data:' + date + ' notes:' + notes;
 }
 
-
-	const userAction = async () => {
-	const response = await fetch('http://localhost:5000/api/v1.0/clients');
-	const myJson = await response.json(); //extract JSON from the http response
-	document.getElementById("clients").innerHTML = myJson;
+function callClients(){
+	$.get( "http://localhost:5000/api/v1.0/clients", function( data ) {
+	        $('#clients').html(data);
+	});
 }
 
